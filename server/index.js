@@ -74,7 +74,7 @@ app.post("/deleteNote", (req, res) => {
 app.post("/updateNote", (req, res) => {
     let {id, title, content} = req.body;
     
-    let query = `update note set title=${title}, content=${content} where id=${id};`;
+    let query = `update note set title='${title}', content='${content}' where id=${id}`;
     conn.query(query, (err, rows) => {
         err ? res.send("error") : res.send("Updated")
     })
