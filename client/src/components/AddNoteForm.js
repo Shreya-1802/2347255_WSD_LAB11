@@ -18,18 +18,18 @@ function AddNoteForm() {
             <form className='w-50'>
                 <div className="form-group row">
                     <div className="col-sm-10">
-                        <input type="text" className="form-control m-4" style={{fontSize: '1.2rem'}} onChange={(e) => setTitle(e.target.value)} id="inputTitle" placeholder="Note Title" />
+                        <input type="text" className="form-control m-4" style={{fontSize: '1.2rem'}} onChange={(e) => setTitle(e.target.value)} id="inputTitle" placeholder="Task Title" />
                     </div>
                 </div>
                 <div className="form-group row">
                     <div className="col-sm-10">
-                        <input type="text" className="form-control m-4" style={{fontSize: '1.2rem'}} onChange={(e) => setContent(e.target.value)} id="inputPassword3" placeholder="Note Content" />
+                        <input type="text" className="form-control m-4" style={{fontSize: '1.2rem'}} onChange={(e) => setContent(e.target.value)} id="inputPassword3" placeholder="Task Information" />
                     </div>
                 </div>
                 
                 <div className="form-group row">
                     <div className="col-sm-10">
-                        <button type="submit" onClick={sendNote} className="btn btn-success m-4">Add Note</button>
+                        <button type="submit" onClick={sendNote} className="btn btn-success m-4">Add Task</button>
                     </div>
                 </div>
             </form>

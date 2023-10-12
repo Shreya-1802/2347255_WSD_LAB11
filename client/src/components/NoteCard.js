@@ -38,7 +38,7 @@ function NoteCard({ id, title, content, date }) {
       <div className="modal">
         <div className="overlay">
           <div className="modalContent">
-            <h1 className="signin">Edit Note</h1>
+            <h1 className="signin">Edit Task</h1>
             <button className="closeModal" onClick={toggleModal}>
               X
             </button>
@@ -78,7 +78,7 @@ function NoteCard({ id, title, content, date }) {
                       onClick={handleEditNote}
                       className="btn btn-success m-4"
                     >
-                      Edit Note
+                      Edit Task
                     </button>
                   </div>
                 </div>

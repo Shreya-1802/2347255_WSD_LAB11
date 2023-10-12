@@ -12,10 +12,10 @@ function Navbar() {
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav">
                         <li className="nav-item m-2">
-                            <a className="nav-link" href="/">Notes</a>
+                            <a className="nav-link" href="/">Task</a>
                         </li>
                         <li className="nav-item m-2">
-                            <a className="nav-link" href="/addNote">Add Note</a>
+                            <a className="nav-link" href="/addNote">Add Task</a>
                         </li>
                     </ul>
                 </div>

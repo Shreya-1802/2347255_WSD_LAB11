@@ -65,7 +65,6 @@ app.post("/deleteNote", (req, res) => {
     let {id} = req.body;
     
     let query = `delete from note where id=${id}`;
-    console.log(id)
     conn.query(query, (err, rows) => {
         err ? res.send("error") : res.send("Removed")
     })
