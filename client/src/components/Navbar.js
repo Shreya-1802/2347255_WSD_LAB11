@@ -15,7 +15,7 @@ function Navbar() {
                             <a className="nav-link" href="/">Task</a>
                         </li>
                         <li className="nav-item m-2">
-                            <a className="nav-link" href="/addNote">Add Task</a>
+                            <a className="nav-link" href="/addTask">Add Task</a>
                         </li>
                     </ul>
                 </div>

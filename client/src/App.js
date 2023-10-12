@@ -10,7 +10,7 @@ import {
   useHistory,
   Redirect,
 } from "react-router-dom";
-import AddNote from './Pages/AddNote';
+import AddTask from './Pages/AddTask';
 
 function App() {
   return (
@@ -23,9 +23,9 @@ function App() {
             <Home />
           </Route>
 
-          <Route exact path="/addNote">
+          <Route exact path="/addTask">
             <Navbar />
-            <AddNote />
+            <AddTask />
           </Route>
 
         </Switch>

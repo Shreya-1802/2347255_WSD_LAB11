@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import axiosbaseurl from "../components/axiosbaseurl";
+import axiosbaseurl from "./axiosbaseurl";
 import "./Modal.css";
 
-function NoteCard({ id, title, content, date }) {
+function TaskCard({ id, title, content, date }) {
   const [modal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!modal);
@@ -11,29 +11,29 @@ function NoteCard({ id, title, content, date }) {
   const [titleState, setTitle] = useState(title);
   const [contentState, setContent] = useState(content);
 
-  const deleteNote = () => {
-    axiosbaseurl.post("deleteNote", { id: id }).then((res) => {
+  const deleteTask = () => {
+    axiosbaseurl.post("deleteTask", { id: id }).then((res) => {
       res.data === "error"
         ? alert("Something went wrong, try again later!")
-        : alert("Note Edited Successfully!");
+        : alert("Task Deleted Successfully!");
     });
 
     window.location.reload(true);
   };
 
-  const handleEditNote = () => {
+  const handleEditTask = () => {
     axiosbaseurl
-      .post("updateNote", { id: id, title: titleState, content: contentState })
+      .post("updateTask", { id: id, title: titleState, content: contentState })
       .then((res) => {
         res.data === "error"
           ? alert("Something went wrong, try again later!")
-          : alert("Note Deleted Successfully!");
+          : alert("Task Edited Successfully!");
       });
 
     window.location.reload(true);
   };
 
-  const EditNote = () => {
+  const EditTask = () => {
     return (
       <div className="modal">
         <div className="overlay">
@@ -52,7 +52,7 @@ function NoteCard({ id, title, content, date }) {
                       style={{ fontSize: "1.2rem" }}
                       onChange={(e) => setTitle(e.target.value)}
                       id="inputTitle"
-                      placeholder="Note Title"
+                      placeholder="Task Title"
                       value={titleState}
                     />
                   </div>
@@ -65,7 +65,7 @@ function NoteCard({ id, title, content, date }) {
                       style={{ fontSize: "1.2rem" }}
                       onChange={(e) => setContent(e.target.value)}
                       id="inputPassword3"
-                      placeholder="Note Content"
+                      placeholder="Task Content"
                       value={contentState}
                     />
                   </div>
@@ -75,7 +75,7 @@ function NoteCard({ id, title, content, date }) {
                   <div className="col-sm-10">
                     <button
                       type="submit"
-                      onClick={handleEditNote}
+                      onClick={handleEditTask}
                       className="btn btn-success m-4"
                     >
                       Edit Task
@@ -104,14 +104,14 @@ function NoteCard({ id, title, content, date }) {
           <button className="btn btn-primary m-2" onClick={toggleModal}>
             Edit
           </button>
-          <button onClick={deleteNote} className="btn btn-danger m-2">
+          <button onClick={deleteTask} className="btn btn-danger m-2">
             Delete
           </button>
         </div>
       </div>
-      {modal && EditNote()}
+      {modal && EditTask()}
     </>
   );
 }
 
-export default NoteCard;
+export default TaskCard;

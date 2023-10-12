@@ -30,7 +30,7 @@ app.get("/", (req, res) => {
     res.send(`<h1>Welcome</h1>`)
 });
 
-app.post("/postNote", (req, res) => {
+app.post("/postTask", (req, res) => {
     let {title, content} = req.body;
 
     Date.prototype.today = function () { 
@@ -41,19 +41,19 @@ app.post("/postNote", (req, res) => {
     let date = newDate.today()
 
 
-    let query = `insert into note(title, content, date) values('${title}', '${content}', '${date}' )`;
+    let query = `insert into task(title, content, date) values('${title}', '${content}', '${date}' )`;
 
     conn.query(query, (err) => {
         err ? res.send("error") : res.send("Added")
     })
 });
 
-app.post("/getNote", (req, res) => {
+app.post("/getTask", (req, res) => {
     
-    let query = `select * from note;`;
+    let query = `select * from task;`;
     conn.query(query, (err, rows) => {
         if(rows.length === 0) {
-            res.send("error")
+            res.send("noData")
         }
         else {
             err ? res.send("error") : res.send(rows)
@@ -61,19 +61,19 @@ app.post("/getNote", (req, res) => {
     })
 });
 
-app.post("/deleteNote", (req, res) => {
+app.post("/deleteTask", (req, res) => {
     let {id} = req.body;
     
-    let query = `delete from note where id=${id}`;
+    let query = `delete from task where id=${id}`;
     conn.query(query, (err, rows) => {
         err ? res.send("error") : res.send("Removed")
     })
 });
 
-app.post("/updateNote", (req, res) => {
+app.post("/updateTask", (req, res) => {
     let {id, title, content} = req.body;
     
-    let query = `update note set title='${title}', content='${content}' where id=${id}`;
+    let query = `update task set title='${title}', content='${content}' where id=${id}`;
     conn.query(query, (err, rows) => {
         err ? res.send("error") : res.send("Updated")
     })

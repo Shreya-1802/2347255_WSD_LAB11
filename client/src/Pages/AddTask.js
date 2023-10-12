@@ -1,14 +1,14 @@
 import React from 'react'
-import AddNoteForm from '../components/AddNoteForm'
+import AddTaskForm from '../components/AddTaskForm'
 
-function AddNote() {
+function AddTask() {
     return (
         <>
             <div className="d-flex align-items-center justify-content-center m-5" >
-                <AddNoteForm />
+                <AddTaskForm />
             </div>
         </>
     )
 }
 
-export default AddNote
+export default AddTask

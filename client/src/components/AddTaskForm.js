@@ -1,15 +1,15 @@
 import React, {useState} from 'react'
 import axiosbaseurl from './axiosbaseurl'
 
-function AddNoteForm() {
+function AddTaskForm() {
 
     const [title, setTitle] = useState("")
     const [content, setContent] = useState("")
 
-    const sendNote = () => {
-        axiosbaseurl.post("postNote", { title: title, content: content })
+    const sendTask = () => {
+        axiosbaseurl.post("postTask", { title: title, content: content })
             .then((res) => {
-                res.data === "error" ? alert("Something went wrong, try again later!") : alert("Note Added Successfully!")
+                res.data === "error" ? alert("Something went wrong, try again later!") : alert("Task Added Successfully!")
             })
     }
 
@@ -29,7 +29,7 @@ function AddNoteForm() {
                 
                 <div className="form-group row">
                     <div className="col-sm-10">
-                        <button type="submit" onClick={sendNote} className="btn btn-success m-4">Add Task</button>
+                        <button type="submit" onClick={sendTask} className="btn btn-success m-4">Add Task</button>
                     </div>
                 </div>
             </form>
@@ -37,4 +37,4 @@ function AddNoteForm() {
     )
 }
 
-export default AddNoteForm
+export default AddTaskForm
